@@ -107,6 +107,14 @@ services:
       - db
       - celery-worker
       - redis
+  mailpit:
+    image: axllent/mailpit:v1.14
+    networks:
+      ba_network:
+        ipv4_address: 172.254.56.8
+
+    ports:
+      - "8025:8025"
 
 #only start it with this traefik config if there is no other traefik instance running on your system
   traefik:

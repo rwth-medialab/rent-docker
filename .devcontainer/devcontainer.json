@@ -18,18 +18,19 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-                "davidanson.vscode-markdownlint",
-                "mrmlnc.vscode-duplicate",
-                "visualstudioexptteam.vscodeintellicode",
-                "visualstudioexptteam.intellicode-api-usage-examples",
-                "ms-python.python",
-                "ms-python.vscode-pylance",
-                "ms-python.isort",
-                "ms-python.black-formatter",
-                "batisteo.vscode-django",
-                "GitHub.copilot",
-                "Vue.volar",
-                "Vue.vscode-typescript-vue-plugin"
+				"davidanson.vscode-markdownlint",
+				"mrmlnc.vscode-duplicate",
+				"visualstudioexptteam.vscodeintellicode",
+				"visualstudioexptteam.intellicode-api-usage-examples",
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-python.isort",
+				"ms-python.black-formatter",
+				"batisteo.vscode-django",
+				"GitHub.copilot",
+				"Vue.volar",
+				"hollowtree.vue-snippets",
+				"sdras.vue-vscode-snippets"
 			]
 		}
 	},

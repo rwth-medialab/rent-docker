@@ -1,9 +1,3 @@
-import os
-from datetime import timedelta
-from datetime import datetime
-from django.utils import timezone
-from dotenv import load_dotenv
-import locale
 """
 Django settings for backend project.
 
@@ -15,6 +9,16 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+
+import locale
+import os
+from datetime import datetime, timedelta
+
+import environ
+from django.utils import timezone
+from dotenv import load_dotenv
+
+env = environ.Env()
 
 from pathlib import Path
 
@@ -204,15 +208,17 @@ EMAIL_VALIDATION_HASH_SALT = str(os.environ.get('EMAIL_VALIDATION_HASH_SALT'))
 # EMAIL
 EMAIL_TEST = str(os.environ.get('EMAIL_TEST')).lower() == 'true'
 if EMAIL_TEST:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_HOST = str(os.environ.get('EMAIL_HOST'))
+    EMAIL_HOST = 'mailpit'
+    EMAIL_PORT = '1025'
+else:
+    EMAIL_HOST = str(os.environ.get('EMAIL_HOST'))
+    EMAIL_PORT = str(os.environ.get('EMAIL_PORT'))
+    EMAIL_USE_TLS = str(os.environ.get('EMAIL_USE_TLS')).lower() == "true"
+    EMAIL_USE_SSL = str(os.environ.get('EMAIL_USE_SSL')).lower() == "true"
 
 if (str(os.environ.get('EMAIL_REQUIRES_LOGIN')).lower() == 'true'):
     EMAIL_HOST_USER = str(os.environ.get('EMAIL_HOST_USER'))
     EMAIL_PASSWORD = str(os.environ.get('EMAIL_PASSWORD'))
-EMAIL_PORT = str(os.environ.get('EMAIL_PORT'))
-EMAIL_USE_TLS = str(os.environ.get('EMAIL_USE_TLS')).lower() == "true"
-EMAIL_USE_SSL = str(os.environ.get('EMAIL_USE_SSL')).lower() == "true"
 DEFAULT_FROM_EMAIL = str(os.environ.get('DEFAULT_FROM_EMAIL'))
 DEFAULT_NOTIFICATION_EMAIL = str(os.environ.get('DEFAULT_NOTIFICATION_EMAIL'))
 
